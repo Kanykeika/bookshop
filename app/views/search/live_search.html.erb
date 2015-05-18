@@ -1,0 +1,7 @@
+<% if @results.empty? %>
+    Книга не найдена!
+<% else %>
+    <% @results.each do |book| %>
+        <%= link_to book.name, book %>
+    <% end %>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div class="span9">
+
+<h1>Listing Subcategories</h1>
+  <br/>
+
+    <% @subcategories.each do |subcategory| %>
+      <div class="row">
+        <div class="span3 offset1">
+          <h5><%= subcategory.name %></h5>
+        </div>
+
+        <div class="span2">
+          <h5><i><%= link_to 'Show', subcategory, style: 'text-decoration: underline' %> |
+          <%= link_to 'Edit', edit_subcategory_path(subcategory), style: 'text-decoration: underline' %> |
+          <%= link_to 'Destroy', subcategory, method: :delete, data: { confirm: 'Are you sure?' }, style: 'text-decoration: underline' %></i></h5>
+        </div>
+      </div>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Subcategory', new_subcategory_path %>
+</div>

@@ -1,0 +1,40 @@
+<% provide(:title, 'Log in') %>
+<div class="span9">
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %><span class="divider">/</span></li>
+    <li class="active">Login</li>
+  </ul>
+  <h3> Login</h3>
+  <hr class="soft"/>
+
+  <div class="row">
+    <div class="span4">
+      <div class="well">
+        <%= form_for(:session, url: login_path) do |f| %>
+
+            <div class="control-group">
+              <%= f.label :email, 'Email', class: "control-label"  %>
+              <div class="controls">
+                <%= f.email_field :email, class: 'span3', placeholder: "Email" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.label :password, 'Пароль', class: "control-label"  %>
+              <div class="controls">
+                <%= f.password_field :password, class: 'span3' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <%= f.submit "Log in", class: "btn" %>
+              </div>
+            </div>
+        <% end %>
+        <p>Новый user? <%= link_to "Зарегистрируйся!", register_path %></p>
+
+      </div>
+    </div>
+  </div>
+</div>

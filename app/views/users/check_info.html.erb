@@ -1,0 +1,103 @@
+<% provide :title, "Проверка данных" %>
+<div class="span9">
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+    <li class="active">Проверка данных</li>
+  </ul>
+  <h3>Проверка данных</h3>
+  <div class="well">
+    <%= form_for(@user, :html => { :class => 'form-horizontal'}) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div class="control-group">
+          <%= f.label :first_name, 'Имя <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :first_name, :placeholder => "First Name" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :last_name, 'Фамилия <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :last_name, :placeholder => "Last Name" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :email, 'Email <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.email_field :email, :placeholder => "Email" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :address, 'Адрес <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :address, :placeholder => "Adress" %> <span>Район, улица, квартира/дом №</span>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :postal_code, 'Почтовый индекс <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.number_field :postal_code, :placeholder => "Zip / Postal Code" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :phone_number, 'Телефон <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :phone_number, :placeholder => "phone_number" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :comment, 'Комментарий <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :comment, :placeholder => "Комментарий" %>
+          </div>
+        </div>
+        <p><sup>*</sup>Required field	</p>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Сохранить", class: "btn btn-large btn-success" %>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+ <div class="container">
+   <h3>Список выбранных книг</h3>
+   <div class="row">
+     <div class="span2">
+       Product
+     </div>
+     <div class="span2">
+       Description
+     </div>
+     <div class="span2">
+       Quantity
+     </div>
+     <div class="span2">
+       Price
+     </div>
+   </div>
+   <div class="row">
+     <div class="span2">
+       <%= image_tag('products/4.jpg', :style =>  "width: 60px") %>
+     </div>
+     <div class="span2">
+       MASSA AST
+     </div>
+     <div class="span2">
+       1 шт.
+     </div>
+     <div class="span2">
+       $7.00
+     </div>
+   </div>
+   <div class="row">
+     <div class="span2 offset6">
+       <strong>TOTAL ($7) =</strong>  <p class="label label-important" style="display:block"> <strong> $7.00 </strong></p>
+     </div>
+   </div>
+ </div>
+
+
+  <%= link_to '<i class="icon-arrow-left"></i> Back '.html_safe, product_summary_path, class: "btn btn-large"%>
+  <%= link_to 'Оформить заказ', products_path, class: "btn btn-large btn-primary pull-right", onclick: 'return confirm("Подтвердить заказ?")' %>
+
+</div>

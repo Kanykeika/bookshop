@@ -1,0 +1,6 @@
+<% provide(:title, 'Profile') %>
+<% provide(:username, @user.first_name) %>
+
+<div class="span9">
+    <%= @user.first_name %>, <%= @user.email %>
+</div>

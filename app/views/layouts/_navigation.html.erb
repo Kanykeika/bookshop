@@ -1,0 +1,41 @@
+<div id="sidebar" class="span3">
+  <%= link_to '<div class="well well-small">'.html_safe + image_tag('ico-cart.png') + '3 книг(и) в корзине  <span class="badge badge-warning pull-right">$155.00</span>'.html_safe, product_summary_path, :id => "myCart" %>
+  </div>
+
+  <ul id="sideManu" class="nav nav-tabs nav-stacked">
+    <% retrieve_categories.each do |category| %>
+        <li class="subMenu">
+          <%= link_to category.name %>
+            <ul style="display:none">
+              <% category.subcategories.each do |subcategory| %>
+                  <li><%= link_to subcategory.name, subcategory %></li>
+              <% end %>
+            </ul>
+        </li>
+    <% end %>
+  </ul>
+  <br/>
+  <div class="thumbnail">
+    <%= image_tag('products/c1.jpg') %>
+    <div class="caption">
+      <h5>Упражнения</h5>
+      <h4 style="text-align:center">
+        <%= link_to '<i class="icon-zoom-in"></i>'.html_safe, product_details_path, :class=>"btn" %>
+        <%= link_to 'Add to <i class="icon-shopping-cart"></i>'.html_safe, product_details_path, :class=>"btn" %>
+        <%= link_to '300.00 cом'.html_safe, product_details_path, :class=>"btn btn-primary" %>
+      </h4>
+    </div>
+  </div><br/>
+  <div class="thumbnail">
+    <%= image_tag('products/1.jpg') %>
+    <div class="caption">
+      <h5>Школа рукоделия</h5>
+      <h4 style="text-align:center">
+        <%= link_to '<i class="icon-zoom-in"></i>'.html_safe, product_details_path, :class=>"btn" %>
+        <%= link_to 'Add to <i class="icon-shopping-cart"></i>'.html_safe, product_details_path, :class=>"btn" %>
+        <%= link_to '300.00 cом'.html_safe, product_details_path, :class=>"btn btn-primary" %>
+      </h4>
+    </div>
+  </div><br/>
+
+</div>

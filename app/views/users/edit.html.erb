@@ -1,0 +1,72 @@
+<% provide(:title, "Edit profile") %>
+<% provide(:username, @user.first_name) %>
+<div class="span9">
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+    <li class="active">Update your profile</li>
+  </ul>
+  <h3>Изменить профиль</h3>
+  <div class="well">
+    <%= form_for(@user, :html => { :class => 'form-horizontal'}) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div class="control-group">
+          <%= f.label :first_name, 'Имя <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :first_name, :placeholder => "First Name" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :last_name, 'Фамилия <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :last_name, :placeholder => "Last Name" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :email, 'Email <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.email_field :email, :placeholder => "Email" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :password, 'Пароль <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.password_field :password, :placeholder => "Password" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :address, 'Адрес <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :address, :placeholder => "Adress" %> <span>Район, улица, квартира/дом №</span>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :postal_code, 'Почтовый индекс <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.number_field :postal_code, :placeholder => "Zip / Postal Code" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :phone_number, 'Телефон <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :phone_number, :placeholder => "phone_number" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :comment, 'Комментарий <sup>*</sup>'.html_safe, :class => 'control-label'%>
+          <div class="controls">
+            <%= f.text_field :comment, :placeholder => "Комментарий" %>
+          </div>
+        </div>
+        <p><sup>*</sup>Required field	</p>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Сохранить", class: "btn btn-large btn-success" %>
+          </div>
+        </div>
+    <% end %>
+
+
+
+
+  </div>
+</div>

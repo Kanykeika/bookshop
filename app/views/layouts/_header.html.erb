@@ -1,0 +1,47 @@
+<div id="header">
+  <div class="container">
+    <div id="welcomeLine" class="row">
+      <div class="span6">Welcome!<strong> <%= yield(:username)%></strong></div>
+      <div class="span6">
+        <div class="pull-right">
+
+          <span class="btn btn-mini">$155.00</span>
+          <%= link_to '<span class="">$</span>'.html_safe, product_summary_path %>
+          <%= link_to '<span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span>'.html_safe, product_summary_path %>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar ================================================== -->
+    <div id="logoArea" class="navbar">
+      <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="navbar-inner">
+        <%= link_to image_tag('logo.png', :alt => "logo.png"), root_path, :class => "brand" %>
+         <!--render partial: 'search/live_srch' -->
+        <ul id="topMenu" class="nav pull-right">
+          <% if logged_in? && current_user.admin? %>
+              <li class=""><%= link_to "Настройки", edit_user_path(current_user) %></li>
+              <li class=""><%= link_to "Книги", products_path %></li>
+              <li class=""><%= link_to "Категории", categories_path %></li>
+              <li class=""><%= link_to "Подкатегории", subcategories_path %></li>
+              <li class="divider"></li>
+              <li class=""><%= link_to '<span class="btn btn-large btn-primary">Log out</span>'.html_safe, logout_path, method: "delete" %></li>
+          <% elsif logged_in? %>
+              <li class=""><%= link_to "Профиль", current_user %></li></li>
+              <li class=""><%= link_to "Настройки", edit_user_path(current_user) %></li>
+              <li class=""><%= link_to "Контакты", contact_path %></li>
+              <li class="divider"></li>
+              <li class=""><%= link_to '<span class="btn btn-large btn-primary">Log out</span>'.html_safe, logout_path, method: "delete" %></li>
+          <% elsif !logged_in? %>
+              <li class=""><%= link_to "Контакты", contact_path %></li>
+              <li class="divider"></li>
+              <li class=""><%= link_to '<span class="btn btn-large btn-success">Login</span>'.html_safe, login_path, style: "padding-right:0" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

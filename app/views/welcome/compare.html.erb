@@ -1,0 +1,80 @@
+<% provide(:title, 'Compare') %>
+<div class="span9">
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+    <li class="active">Products Compairsition</li>
+  </ul>
+  <h3> Products Compairsition <small class="pull-right"> 2 products are compaired </small></h3>
+  <hr class="soft"/>
+
+  <table id="compairTbl" class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Features</th>
+      <th>Product1 name here </th>
+      <th>Product2 name here</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>&nbsp;</td>
+      <td style="text-align:center">
+        <p class="justify">
+          Nowadays the lingerie industry is one of the most successful business spheres.
+          We always stay in touch with the latest fashion tendencies - that is why our
+          goods are so popular and we have a great number of faithful customers all over the country.
+        </p>
+        <%= image_tag('products/1.jpg')%>
+        <form class="form-horizontal qtyFrm">
+          <h3> $222.00</h3><br/>
+          <%= link_to 'Add to <i class=" icon-shopping-cart"></i>'.html_safe, product_details_path, :class => "btn btn-large btn-primary" %>
+          <%= link_to '<i class="icon-zoom-in"></i>'.html_safe, product_details_path, :class=>"btn btn-large"%>
+        </form>
+      </td>
+      <td>
+        <p class="justify">
+          Nowadays the lingerie industry is one of the most successful business spheres.
+          We always stay in touch with the latest fashion tendencies - that is why our
+          goods are so popular and we have a great number of faithful customers all over the country.
+        </p>
+        <%= image_tag('products/3.jpg') %>
+
+        <form class="form-horizontal qtyFrm">
+          <h3> $190.00</h3>
+          <br/>
+          <%= link_to 'Add to <i class=" icon-shopping-cart"></i>'.html_safe, product_details_path, :class => "btn btn-large btn-primary" %>
+          <%= link_to '<i class="icon-zoom-in"></i>'.html_safe, product_details_path, :class=>"btn btn-large"%>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Height</td>
+      <td>2"</td>
+      <td>2"</td>
+    </tr>
+    <tr>
+      <td>Deepth</td>
+      <td>5"</td>
+      <td>5"</td>
+    </tr>
+    <tr>
+      <td>Dimension</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Width</td>
+      <td>6.5"</td>
+      <td>6.5"</td>
+    </tr>
+    <tr>
+      <td>Weight</td>
+      <td>0.5kg</td>
+      <td>0.5kg</td>
+    </tr>
+    </tbody>
+  </table>
+  <%= link_to "Back Products Page", products_path, :class => "btn btn-large pull-right" %>
+
+
+</div>

@@ -1,0 +1,22 @@
+<% provide(:title, "All categories")%>
+<div class="span9">
+  <h1>Listing Categories</h1>
+  <br/>
+  <% @categories.each do |category| %>
+      <div class="row">
+        <div class="span3 offset1">
+          <h5><%= category.name %></h5>
+        </div>
+        <div class="span2">
+          <h5><i><%= link_to 'Show', category, style: 'text-decoration: underline' %> |
+          <%= link_to 'Edit', edit_category_path(category), style: 'text-decoration: underline' %> |
+          <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, style: 'text-decoration: underline' %></i></h5>
+        </div>
+      </div>
+  <% end %>
+
+  <br>
+
+  <%= link_to 'New Category', new_category_path, style: 'text-decoration: underline' %>
+</div>
+

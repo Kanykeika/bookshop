@@ -1,0 +1,59 @@
+<div class="span9">
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %><span class="divider">/</span></li>
+    <li class="active">Login</li>
+  </ul>
+  <h3> Login</h3>
+  <hr class="soft"/>
+
+  <div class="row">
+    <div class="span4">
+      <div class="well">
+        <h5>CREATE YOUR ACCOUNT</h5><br/>
+        Enter your e-mail address to create an account.<br/><br/><br/>
+        <form action="register.html">
+          <div class="control-group">
+            <label class="control-label" for="inputEmail0">E-mail address</label>
+            <div class="controls">
+              <input class="span3"  type="text" id="inputEmail0" placeholder="Email">
+            </div>
+          </div>
+          <div class="controls">
+            <button type="submit" class="btn block">Create Your Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="span1"> &nbsp;</div>
+    <div class="span4">
+      <div class="well">
+        <h5>ALREADY REGISTERED ?</h5>
+        <%= form_for(:session, url: login_path) do |f| %>
+
+            <div class="control-group">
+              <%= f.label :email, 'Email', class: "control-label"  %>
+              <div class="controls">
+                <%= f.email_field :email, class: 'span3', placeholder: "Email" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.label :password, 'Password', class: "control-label"  %>
+              <div class="controls">
+                <%= f.password_field :password, class: 'span3' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <%= f.submit "Log in", class: "btn" %>
+              </div>
+            </div>
+      <% end %>
+        <p>New user? <%= link_to "Sign up now!", register_path %></p>
+
+
+      </div>
+    </div>
+  </div>
+</div>

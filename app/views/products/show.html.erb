@@ -1,0 +1,133 @@
+<% provide(:title, "Product details")%>
+<div class="span9">
+
+    <ul class="breadcrumb">
+      <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+      <li><%= link_to "Products", products_path %> <span class="divider">/</span></li>
+      <li class="active">Product Details</li>
+    </ul>
+    <div class="row">
+      <div id="gallery" class="span3">
+        <%= link_to image_tag @product.image_url, :style => "width:100%" %>
+      </div>
+      <div class="span6">
+        <h3><%= @product.name %></h3>
+        <hr class="soft"/>
+        <form class="form-horizontal qtyFrm">
+          <div class="control-group">
+            <label class="control-label"><span><%= @product.price %> сом</span></label>
+            <div class="controls">
+              <input type="number" class="span1" placeholder="кол-во"/>
+              <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
+            </div>
+          </div>
+        </form>
+
+        <hr class="soft"/>
+
+        <p>
+          <%= @product.description %>
+
+        </p>
+        <a class="btn btn-small pull-right" href="#detail">More Details</a>
+        <br class="clr"/>
+        <a href="#" name="detail"></a>
+        <hr class="soft"/>
+      </div>
+
+      <div class="span9">
+        <ul id="productDetail" class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab">Product Details</a></li>
+          <li><a href="#profile" data-toggle="tab">Related Products</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="home">
+            <h4>Подробная информация</h4>
+            <table class="table table-bordered">
+              <tbody>
+              <tr class="techSpecRow"><td class="techSpecTD1">Кол-во страниц: </td><td class="techSpecTD2"><%= @product.papers_count %></td></tr>
+              <tr class="techSpecRow"><td class="techSpecTD1">Автор:</td><td class="techSpecTD2"><%= @product.author %></td></tr>
+              <tr class="techSpecRow"><td class="techSpecTD1">Формат:</td><td class="techSpecTD2"><%= @product.format %></td></tr>
+              <tr class="techSpecRow"><td class="techSpecTD1">Год выпуска:</td><td class="techSpecTD2"><%= @product.year %></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="profile">
+            <div id="myTab" class="pull-right">
+              <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
+              <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
+            </div>
+            <br class="clr"/>
+            <hr class="soft"/>
+            <div class="tab-content">
+              <div class="tab-pane" id="listView">
+                <% @products.each do |product| %>
+
+                    <div class="row">
+                      <div class="span2">
+                        <%= image_tag (product.image_url), width: 150 %>
+                      </div>
+                      <div class="span4">
+                        <h4><%= product.name %></h4>
+                        <hr class="soft"/>
+                        <p>
+                          <%= truncate(product.description.gsub(/<.*?>/,''), :length => 50) %>
+                        </p>
+                        <%= link_to 'View Details', product, class: "btn btn-small pull-right" %>
+                        <br class="clr"/>
+                      </div>
+                      <div class="span3 alignR">
+                        <form class="form-horizontal qtyFrm">
+                          <h3><%= product.price %></h3>
+                          <label class="checkbox">
+                            <input type="checkbox">  Add product to compare
+                          </label><br/>
+
+                          <%= link_to 'Add to <i class=" icon-shopping-cart"></i>'.html_safe, product, class: "btn btn-large btn-primary" %>
+                          <%= link_to '<i class="icon-zoom-in"></i>'.html_safe, product, class: "btn btn-large" %>
+
+                        </form>
+                      </div>
+                    </div>
+                    <hr class="soft"/>
+                <% end %>
+
+              </div>
+              <div class="tab-pane active" id="blockView">
+                <ul class="thumbnails">
+                  <% @products.each do |product| %>
+
+                      <li class="span3">
+                        <div class="thumbnail">
+                          <%= link_to image_tag(product.image_url, width: 150), product %>
+                          <div class="caption">
+                            <h5><%= truncate(product.name.gsub(/<.*?>/,''), :length => 32)  %></h5>
+                            <p>
+                              <%= truncate(product.description.gsub(/<.*?>/,''), :length => 35) %>
+                            </p>
+                            <h4 style="text-align:center">
+                              <%= link_to '<i class="icon-zoom-in"></i></a>'.html_safe, product, class: "btn" %>
+                              <%= link_to 'Add to <i class="icon-shopping-cart"></i>'.html_safe, product, class: "btn" %>
+                              <%= link_to product.price, product, class: "btn btn-primary" %>
+                            </h4>
+                          </div>
+                        </div>
+                      </li>
+
+                  <% end %>
+                </ul>
+                <hr class="soft"/>
+              </div>
+            </div>
+            <br class="clr">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
+  <% end %>
+</div>
