@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
   validate :price_at_least_fifty_soms
   validates :year,  presence: true, length: { maximum: 4 }
   validates :papers_count,  presence: true
+  # validates :subcategory,  presence: true
 
   # def self.search(search)
   #   if search

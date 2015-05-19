@@ -44,8 +44,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :subcategory %><br>
-    <%= f.select(:subcategory, Subcategory.all.collect {|subcategory| [subcategory.name, subcategory.id]})  %>
+    <%= f.label :subcategory_id %><br>
+    <%= f.select(:subcategory_id, Subcategory.all.collect {|subcategory| [subcategory.name, subcategory.id]})  %>
   </div>
   <div class="actions">
     <%= f.submit %>

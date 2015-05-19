@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517120527) do
-
-  create_table "baskets", force: :cascade do |t|
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150518084931) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -41,14 +35,16 @@ ActiveRecord::Schema.define(version: 20150517120527) do
     t.string   "format"
     t.text     "description"
     t.string   "image_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "subcategory_id", default: 1, null: false
   end
 
   create_table "subcategories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "category_id", default: 1, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,11 +55,13 @@ ActiveRecord::Schema.define(version: 20150517120527) do
     t.string   "address"
     t.integer  "postal_code"
     t.string   "phone_number"
-    t.string   "comment"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "password_digest"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",             default: false
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
