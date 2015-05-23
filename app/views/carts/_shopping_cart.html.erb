@@ -8,11 +8,73 @@
     </div>
 <% end %>
 <% if @order_items.size == 0 %>
-    <p class="text-center">
-      There are no items in your shopping cart.  Please <%= link_to "go back", products_path %> and add some items to your cart.
-    </p>
+    <h4 class="text-center">
+      There are no items in your shopping cart.  Please <%= link_to "go back", products_path, style: "color: blue" %> and add some items to your cart.
+    </h4>
 <% else %>
+    <ul class="breadcrumb">
+      <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+      <li class="active"> SHOPPING CART</li>
+    </ul>
+    <h3>  SHOPPING CART [ <small><%= current_order.order_items.size %> Item(s) </small>]<%= link_to '<i class="icon-arrow-left"></i> Continue Shopping'.html_safe, root_path, class: "btn btn-large pull-right" %></h3>
+    <hr class="soft"/>
+    <% if !logged_in? %>
+        <table class="table table-bordered">
+          <tr><th> I AM ALREADY REGISTERED  </th></tr>
+          <tr>
+            <td>
+              <form class="form-horizontal">
+                <div class="control-group">
+                  <label class="control-label" for="inputUsername">Username</label>
+                  <div class="controls">
+                    <input type="text" id="inputUsername" placeholder="Username">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="inputPassword1">Password</label>
+                  <div class="controls">
+                    <input type="password" id="inputPassword1" placeholder="Password">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <button type="submit" class="btn">Sign in</button> OR <%= link_to "Register Now!", register_path, :class =>"btn" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <a href="forgetpass.html" style="text-decoration:underline">Forgot password ?</a>
+                  </div>
+                </div>
+              </form>
+            </td>
+          </tr>
+        </table>
+    <% end %>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Quantity/Update</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
     <% @order_items.each do |order_item| %>
         <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
     <% end %>
+    <tr>
+      <td colspan="6" style="text-align:right"><strong>TOTAL PRICE: </strong></td>
+      <td class="label label-important" style="display:block"> <strong><%= number_to_currency current_order.subtotal %></strong></td>
+    </tr>
+      </tbody>
+    </table>
+
+
+    <%= link_to '<i class="icon-arrow-left"></i> Continue Shopping '.html_safe, root_path, class: "btn btn-large"%>
+    <%= link_to 'Next <i class="icon-arrow-right"></i>'.html_safe, check_path, class: "btn btn-large pull-right" %>
+
+
 <% end %>

@@ -31,23 +31,7 @@
   <h4>Latest Books</h4>
   <ul class="thumbnails">
     <% @products.each do |product| %>
-
-        <li class="span3">
-          <div class="thumbnail">
-            <%= image_tag product.image_url, width: '150' %>
-            <div class="caption">
-              <h5><%= truncate(product.name.gsub(/<.*?>/,''), :length => 32)  %></h5>
-              <p>
-                <%= truncate(product.description.gsub(/<.*?>/,''), :length => 35) %>
-              </p>
-
-              <h4 style="text-align:center">
-                <%= link_to 'Add to <i class="icon-shopping-cart"></i>'.html_safe, product, :class=>"btn" %>
-                <%= link_to product.price, product, :class=>"btn btn-primary" %>
-              </h4>
-            </div>
-          </div>
-        </li>
+        <%= render "product_row", product: product, order_item: @order_item %>
     <% end %>
 
   </ul>

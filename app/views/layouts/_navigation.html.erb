@@ -1,6 +1,6 @@
 <div id="sidebar" class="span3">
-  <%= link_to '<div class="well well-small">'.html_safe + image_tag('ico-cart.png') + '3 книг(и) в корзине  <span class="badge badge-warning pull-right">$155.00</span>'.html_safe, cart_path, :id => "myCart" %>
-  </div>
+  <%= link_to '<div class="well well-small">'.html_safe + image_tag('ico-cart.png') + "#{current_order.order_items.size} книг(и) в корзине " + '<span class="badge badge-warning pull-right">'.html_safe + "#{number_to_currency current_order.subtotal}"+'</span>'.html_safe, cart_path, :id => "myCart" %>
+</div>
 
   <ul id="sideManu" class="nav nav-tabs nav-stacked">
     <% retrieve_categories.each do |category| %>

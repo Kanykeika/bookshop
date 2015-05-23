@@ -13,15 +13,16 @@
       <div class="span6">
         <h3><%= @product.name %></h3>
         <hr class="soft"/>
-        <form class="form-horizontal qtyFrm">
-          <div class="control-group">
-            <label class="control-label"><span><%= @product.price %> сом</span></label>
-            <div class="controls">
-              <input type="number" class="span1" placeholder="кол-во"/>
-              <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
+        <%= form_for @order_item, class: "form-horizontal qtyFrm", remote: true do |f| %>
+            <div class="control-group">
+              <label class="control-label"><span><%= number_to_currency @product.price %> сом</span></label>
+              <div class="controls">
+                <%= f.number_field :quantity, value: 1, class: "span2", min: 1 %>
+                <%= f.submit 'Add to cart <i class="icon-shopping-cart"></i>', class: 'btn btn-large btn-primary pull-right' %>
+                <%= f.hidden_field :product_id, value: @product.id %>
+              </div>
             </div>
-          </div>
-        </form>
+        <% end %>
 
         <hr class="soft"/>
 
