@@ -4,20 +4,18 @@
       <div class="span6">Welcome!<strong> <%= yield(:username)%></strong></div>
       <div class="span6">
         <div class="pull-right">
-
+          <h1><%= link_to "My Store", products_path %></h1>
+          <div class="span4">
+            <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+          </div>
           <span class="btn btn-mini">$155.00</span>
-          <%= link_to '<span class="">$</span>'.html_safe, product_summary_path %>
-          <%= link_to '<span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span>'.html_safe, product_summary_path %>
+          <%= link_to '<span class="">$</span>'.html_safe, cart_path %>
+          <%= link_to '<span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span>'.html_safe, cart_path %>
         </div>
       </div>
     </div>
     <!-- Navbar ================================================== -->
     <div id="logoArea" class="navbar">
-      <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
       <div class="navbar-inner">
         <%= link_to image_tag('logo.png', :alt => "logo.png"), root_path, :class => "brand" %>
          <!--render partial: 'search/live_srch' -->
@@ -30,7 +28,7 @@
               <li class="divider"></li>
               <li class=""><%= link_to '<span class="btn btn-large btn-primary">Log out</span>'.html_safe, logout_path, method: "delete" %></li>
           <% elsif logged_in? %>
-              <li class=""><%= link_to "Профиль", current_user %></li></li>
+              <li class=""><%= link_to "Профиль", current_user %></li>
               <li class=""><%= link_to "Настройки", edit_user_path(current_user) %></li>
               <li class=""><%= link_to "Контакты", contact_path %></li>
               <li class="divider"></li>

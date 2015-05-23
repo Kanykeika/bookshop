@@ -1,6 +1,6 @@
 <% provide(:title, "All products")%>
 <div class="span9">
-
+<% if current_user.admin? && logged_in? %>
 <h1>Listing Products</h1>
 
     <% @products.each do |product| %>
@@ -27,4 +27,15 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+      <% elsif !logged_in? %>
+      <h3 class="text-center">Products for Sale</h3>
+
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <% @products.each do |product| %>
+              <%= render "product_row", product: product, order_item: @order_item %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
 </div>

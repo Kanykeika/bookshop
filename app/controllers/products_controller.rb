@@ -10,7 +10,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     # @products = Product.all
-    @products = Product.all.order(:price)
+    @products = Product.all
+    @order_item = current_order.order_items.new
     # @products = Product.search(params[:search])
   end
 

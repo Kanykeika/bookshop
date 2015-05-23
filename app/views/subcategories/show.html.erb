@@ -28,6 +28,8 @@
   <br class="clr"/>
   <div class="tab-content">
     <div class="tab-pane" id="listView">
+      <%= will_paginate %>
+
       <% @subcategory.products.each do |product_subcategory| %>
 
       <div class="row">
@@ -58,11 +60,14 @@
       </div>
           <hr class="soft"/>
     <% end %>
+      <%= will_paginate %>
 
     </div>
 
     <div class="tab-pane  active" id="blockView">
       <ul class="thumbnails">
+        <%= will_paginate %>
+
         <% @subcategory.products.each do |product_subcategory| %>
 
       <li class="span3">
@@ -83,23 +88,24 @@
         </li>
 
             <% end %>
+        <%= will_paginate %>
       </ul>
       <hr class="soft"/>
     </div>
   </div>
 
   <%= link_to 'Compare Product', compare_path, class: "btn btn-large pull-right" %>
-  <div class="pagination">
-    <ul>
-      <li><a href="#">&lsaquo;</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">...</a></li>
-      <li><a href="#">&rsaquo;</a></li>
-    </ul>
-  </div>
+  <!--<div class="pagination">-->
+    <!--<ul>-->
+      <!--<li><a href="#">&lsaquo;</a></li>-->
+      <!--<li><a href="#">1</a></li>-->
+      <!--<li><a href="#">2</a></li>-->
+      <!--<li><a href="#">3</a></li>-->
+      <!--<li><a href="#">4</a></li>-->
+      <!--<li><a href="#">...</a></li>-->
+      <!--<li><a href="#">&rsaquo;</a></li>-->
+    <!--</ul>-->
+  <!--</div>-->
 
   <br class="clr"/>
 

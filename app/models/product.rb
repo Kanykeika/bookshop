@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
-  belongs_to :basket
+  has_many :order_items
+
+  # default_scope { where(active: true) }
   belongs_to :subcategory
   validates :name,  presence: true, length: { maximum: 50 }, uniqueness: true
   validates :author,  presence: true, length: { maximum: 50 }
