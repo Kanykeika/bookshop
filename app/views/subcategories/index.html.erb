@@ -3,6 +3,7 @@
 <% if logged_in? && current_user.admin? %>
 <h1>Listing Subcategories</h1>
   <br/>
+      <%= link_to 'New Subcategory', new_subcategory_path %>
 
     <% @subcategories.each do |subcategory| %>
       <div class="row">
@@ -20,7 +21,6 @@
 
 <br>
 
-<%= link_to 'New Subcategory', new_subcategory_path %>
 
 
 <% end %>

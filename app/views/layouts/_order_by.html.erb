@@ -1,0 +1,5 @@
+
+<%= form_tag(root_path, :method => "get", class: "form-inline navbar-search") do |f| %>
+    <%= f.association :name, collection: Product.order('name ASC') %>
+        <button class="btn btn-primary" type="submit">Sort</button>
+<% end %>

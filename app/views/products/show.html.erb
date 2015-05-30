@@ -18,7 +18,9 @@
               <label class="control-label"><span><%= number_to_currency @product.price %> сом</span></label>
               <div class="controls">
                 <%= f.number_field :quantity, value: 1, class: "span2", min: 1 %>
-                <%= f.submit 'Add to cart <i class="icon-shopping-cart"></i>', class: 'btn btn-large btn-primary pull-right' %>
+                <%= button_tag( class: "btn btn-large btn-primary pull-right") do %>
+                    <%= content_tag :i, "  Add to cart", class: "icon-shopping-cart" %>
+                <% end %>
                 <%= f.hidden_field :product_id, value: @product.id %>
               </div>
             </div>

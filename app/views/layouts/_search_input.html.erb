@@ -1,0 +1,5 @@
+
+<%= form_tag(root_path, :method => "get", class: "form-inline navbar-search", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], :size => 50, class: "srchTxt", placeholder: "Name, Author, Description" %>
+        <button class="btn btn-primary" type="submit">Search</button>
+<% end %>

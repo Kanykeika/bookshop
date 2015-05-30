@@ -1,0 +1,14 @@
+<div class="span9">
+  <%= form_for(:upload, :url => { :action => "upload" }, :multipart => true) do |form| %>
+
+
+      <h4><%= form.label :datafile, "Select File" %> :</h4>
+      <div class="col-md-9">
+        <%= form.file_field 'datafile', class: "form-control input-sm" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= form.submit "Upload", class: "btn btn-default" %>
+      </div>
+  <% end %>
+</div>

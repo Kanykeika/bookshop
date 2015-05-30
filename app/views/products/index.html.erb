@@ -2,7 +2,9 @@
 <div class="span9">
 <% if logged_in? && current_user.admin? %>
 <h1>Listing Products</h1>
-
+      <br/>
+      <%= link_to 'New Product', new_product_path %>
+      <br/>
     <% @products.each do |product| %>
       <div class="row">
         <div class="span2">
@@ -26,7 +28,6 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
       <% elsif !logged_in? %>
       <h3 class="text-center">Products for Sale</h3>
 
