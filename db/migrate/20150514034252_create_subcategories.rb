@@ -1,6 +1,6 @@
 class CreateSubcategories < ActiveRecord::Migration
   def change
-    create_alter_table :subcategories do |t|
+    create_table :subcategories do |t|
       t.string :name
 
 

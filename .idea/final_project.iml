@@ -195,6 +195,7 @@
     <orderEntry type="library" scope="PROVIDED" name="web-console (v2.1.2, ruby-2.1.5-p273) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="will_paginate (v3.0.7, ruby-2.1.5-p273) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="win32console (v1.3.2, ruby-2.1.5-p273) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yaml_db (v0.3.0, ruby-2.1.5-p273) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

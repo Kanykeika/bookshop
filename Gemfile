@@ -7,7 +7,8 @@ gem 'font-awesome-rails'
 gem 'rails', '4.2.0'
 # gem 'bootstrap-sass', '3.2.0.0'
 gem 'bcrypt'
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
+gem 'yaml_db'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
