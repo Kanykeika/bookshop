@@ -1,0 +1,6 @@
+1. Gemfile: gem ‘yaml_db’
+2. cmd: bundle
+3. rails c: Rails.env.development? -> if true: bundle exec rake db:data:dump
+4. rails c: Rails.env.production? -> if true:  bundle exec rake db:data:load
+5. cmd: heroku run bundle exec rake db:data:reset
+6. cmd: heroku run bundle exec rake db:data:load
