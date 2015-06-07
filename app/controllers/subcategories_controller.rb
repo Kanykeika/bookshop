@@ -10,8 +10,7 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories/1
   # GET /subcategories/1.json
   def show
-    @subcategories = Subcategory.sort_by(:name).paginate(page: params[:page])
-
+    @subcategories = Subcategory.paginate(page: params[:page])
   end
 
   # GET /subcategories/new

@@ -8,18 +8,19 @@
   <h3>   <%= @subcategory.name %> </h3>
   <hr class="soft"/>
 
-  <form class="form-horizontal span6">
-    <div class="control-group">
-      <label class="control-label alignL" style="margin-right: 1em">Sort By </label>
-      <select>
-        <option>Product name A - Z</option>
-        <option>Product name Z - A</option>
-        <option>Product Stoke</option>
-        <option>Price Lowest first</option>
-      </select>
-    </div>
-  </form>
-<!--render partial: 'layouts/order_by'-->
+  <!--<form class="form-horizontal span6">-->
+    <!--<div class="control-group">-->
+      <!--<label class="control-label alignL" style="margin-right: 1em">Sort By </label>-->
+      <!--<select>-->
+        <!--<option>Product name A - Z</option>-->
+        <!--<option>Product name Z - A</option>-->
+        <!--<option>Product Stoke</option>-->
+        <!--<option>Price Lowest first</option>-->
+      <!--</select>-->
+    <!--</div>-->
+  <!--</form>-->
+
+  <%= render 'layouts/order_by' %>
 
   <div id="myTab" class="pull-right">
     <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
@@ -30,7 +31,7 @@
     <div class="tab-pane" id="listView">
       <%= will_paginate %>
 
-      <% @subcategory.products.each do |product_subcategory| %>
+      <% @subcategory.products.my_sort(params[:sort_attr]).each do |product_subcategory| %>
 
       <div class="row">
         <div class="span2">
@@ -68,7 +69,7 @@
       <ul class="thumbnails">
         <%= will_paginate %>
 
-        <% @subcategory.products.each do |product_subcategory| %>
+        <% @subcategory.products.my_sort(params[:sort_attr]).each do |product_subcategory| %>
 
       <li class="span3">
           <div class="thumbnail">

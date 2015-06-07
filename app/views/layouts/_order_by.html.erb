@@ -1,5 +1,11 @@
 
-<%= form_tag(root_path, :method => "get", class: "form-inline navbar-search") do |f| %>
-    <%= f.association :name, collection: Product.order('name ASC') %>
-        <button class="btn btn-primary" type="submit">Sort</button>
+
+<%= form_tag(@subcategory, :method => "get", class: "form-horizontal span6", id: "sort-form") do %>
+    <div class="control-group">
+      <label class="control-label alignL" style="margin-right: 1em">Sort By </label>
+      <%= select(:sort_attr, params[:sort_attr], options_for_select([['Name', "name"], ['Price', 'price']], 2) ) %>
+
+    <button class="btn btn-primary" type="submit">Go</button>
+    </div>
 <% end %>
+

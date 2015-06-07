@@ -37,7 +37,7 @@
   </div>
   <%= will_paginate %>
   <ul class="thumbnails">
-    <% if !@products %>
+    <% if @products.nil? %>
             Книга не найдена!
 <% else %>
     <% @products.each do |product| %>

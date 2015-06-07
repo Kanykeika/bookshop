@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :activation_token
+  attr_accessor :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
   has_one :order

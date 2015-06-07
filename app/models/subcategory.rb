@@ -3,14 +3,14 @@ class Subcategory < ActiveRecord::Base
   has_many :products
   validates :name, presence: true, uniqueness: true
 
-  # def self.order(order)
-  #   if order
-  #     order = order.to_s.upcase
-  #     self.order(:name)
-  #   else
-  #     # self.order(name: :desc)
-  #     self.all
-  #   end
-  # end
+  def self.my_sort(sort_attr)
+    if sort_attr
+      sort_attr = sort_attr.to_s.downcase
+      self.order('? ASC', "#{sort_attr}")
+    else
+      # self.order('? DESC', "#{sort_attr}")
+      self.all
+    end
+  end
 
 end

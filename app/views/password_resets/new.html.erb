@@ -1,0 +1,30 @@
+<% provide(:title, 'Forget password') %>
+<div class="span9">
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+    <li class="active">Forget password?</li>
+  </ul>
+  <h3> FORGET YOUR PASSWORD?</h3>
+  <hr class="soft"/>
+
+  <div class="row">
+    <div class="span9" style="min-height:900px">
+      <div class="well">
+        <h5>Reset your password</h5><br/>
+        Please enter the email address for your account. A verification code will be sent to you. Once you have received the verification code, you will be able to choose a new password for your account.<br/><br/><br/>
+        <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+            <div class="control-group">
+              <%= f.label :email, :class => "control-label"%>
+              <div class="controls">
+                <%= f.email_field :email, class: 'span3', placeholder: "Email" %>
+              </div>
+            </div>
+            <div class="controls">
+              <%= f.submit "Submit", class: "btn block" %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

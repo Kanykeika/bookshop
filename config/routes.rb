@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :subcategories
 
   resources :categories
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   resources :products
  # get 'search' => 'search#index'

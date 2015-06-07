@@ -23,6 +23,16 @@ class Product < ActiveRecord::Base
     end
     end
 
+  def self.my_sort(sort_attr)
+    if sort_attr
+      sort_attr = sort_attr.to_s.downcase
+      # self.order('? ASC', "#{sort_attr}").find_by(:subcategory => 5)
+      self.find_by_sql("select * from products where subcategory_id = ? order by ? ASC", 5, "#{sort_attr}")
+    else
+      # self.order('? DESC', "#{sort_attr}")
+      self.all
+    end
+  end
 
 
   protected
